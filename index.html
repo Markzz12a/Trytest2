@@ -74,6 +74,7 @@
     </header>
 
     <div class="card">
+      <!-- Start Screen -->
       <div id="startScreen">
         <h2 style="margin:0 0 8px">Welcome to the Quiz</h2>
         <div class="desc small">40 questions — answer one question per page. Click Start when you're ready.</div>
@@ -83,6 +84,7 @@
         <div style="margin-top:12px" class="small">You can navigate with Next / Back. Final page has Submit.</div>
       </div>
 
+      <!-- Quiz Area -->
       <div class="question-wrap" id="quizArea">
         <div class="meta">
           <div>
@@ -95,7 +97,9 @@
           </div>
         </div>
 
-        <div class="opts" id="options"></div>
+        <div class="opts" id="options">
+          <!-- options here -->
+        </div>
 
         <div class="controls">
           <div>
@@ -109,6 +113,7 @@
         </div>
       </div>
 
+      <!-- Result -->
       <div class="result" id="resultArea" style="margin-top:18px">
         <div>
           <div class="small">Your result</div>
@@ -121,43 +126,71 @@
 
 <script>
 const questions = [
-{q:"1. It is applying the scientific knowledge and methods to develop new tools to help society.",opts:["a. food","b. technology","c. business","d. ?"],a:"b"},
-{q:"2. Which has not a technology?",opts:["a. Using human force to harvest rice","b. Using robots to do the operation","c. Sending messages through mobile phones","d. Using cleaning machines to clean the house"],a:"a"},
-{q:"3. What is the usefulness of medical technology?",opts:["a. Promote the energy conservation","b. Reduce the death rate of population","c. Industrial business expands.","d. Crime decreases"],a:"b"},
-{q:"4. What should we consider when buying health products?",opts:["a. Necessary","b. Free product","c. Popularity","d. Advertisement from favorite stars"],a:"a"},
-{q:"5. Which health product should you purchase?",opts:["a. Drinking water","b. Cosmetics","c. Popular snack","d. Dish cleaner"],a:"a"},
-{q:"6. It affects the decision to purchase products and health services.",opts:["a. Advertisement","b. Culture","c. Friend","d. Politicians"],a:"a"},
-{q:"7. The service of the government that provides health services to the people.",opts:["a. Food services","b. Health Insurance","c. Health Services","d. Health Products"],a:"c"},
-{q:"8. Which is the characteristic of public health service?",opts:["a. People can access easily and the service is standardized.","b. The service is only for few people.","c. People do not pay for treatment.","d. Nervous hospital"],a:"a"},
-{q:"9. Which is not a label of a health product?",opts:["a. Warning","b. Net weight","c. Name of the owner","d. Procedure"],a:"c"},
-{q:"10. What is the purpose of the health insurance project?",opts:["a. Improve ability of doctors","b. Allow people to have standardized and equal health.","c. the poor and disordered.","d. Dish cleaner that is sold in the community"],a:"b"},
-{q:"11. How does using computers for a long time affect health?",opts:["a. Causing pimples on the face","b. Causing overweight","c. Causing brain damage","d. Causing headache and vomiting"],a:"d"},
-{q:"12. Which medical advancement affects teenager's health the most?",opts:["a. Wearing contact lens.","b. Having plastic surgery","c. Transferring organs","d. Orthodontics"],a:"d"},
-{q:"13. Which medical advancement is very dangerous?",opts:["a. Wearing contact lens to solve eye problems","b. Orthodontics","c. Having nose surgery after the accident","d. Having an abortion"],a:"d"},
-{q:"14. It is a popular medical advancement that strengthen and align the teeth.",opts:["a. Orthodontics","b. Contact lens","c. Plastic surgery","d. Hair culture"],a:"a"},
-{q:"15. What is public health technology?",opts:["a. The scientific knowledge to explore the outer space","b. The method to increase farm products","c. It is the scientific knowledge of treating disease.","d. It is use in travelling conveniently."],a:"c"},
-{q:"16. Which of the following is a disadvantage of orthodontics?",opts:["a. It prevents gum disease.","b. Helps speaking clearly.","c. Gives confidence in oneself.","d. Feel pain from the changing position of teeth."],a:"d"},
-{q:"17. Which is not a kind of health services?",opts:["a. Specific health service","b. Transferring patients comfortably and fast.","c. Loans","d. Health Insurance"],a:"c"},
-{q:"18. Which is not a health product?",opts:["a. a newspaper","b. toothpaste","c. measuring pressure device","d. cough medicine"],a:"a"},
-{q:"19. The change that shows the growth and development of a teenager's height and weight.",opts:["a. Physical","b. Mental","c. Social","d. Emotional"],a:"a"},
-{q:"20. Which technology positively affects health?",opts:["a. Using a mobile phone in high frequency areas","b. Arranging a trip to outer space","c. Manufacturing a car that uses water instead of oil","d. Creating 3D movies"],a:"c"},
-{q:"21. If you do not receive fair service in purchasing health products, who should you call for?",opts:["a. Ministry of Interior","b. Police station","c. Office of the consumer board","d. The King"],a:"c"},
-{q:"22. Which health services is a specific health service?",opts:["a. Priest hospital","b. Bangkok Hospital","c. Nervous hospital","d. Siriraj hospital"],a:"c"},
-{q:"23. Which one is not a public health service?",opts:["a. Thai massage","b. Public health station","c. Drugstore","d. District hospital"],a:"a"},
-{q:"24. The products that consumers use in order to live healthy.",opts:["a. Socialization","b. Intellectual technology","c. Health product","d. Physical fitness"],a:"c"},
-{q:"25. What is the positive effect of medical advancement towards the world population?",opts:["a. Population has better education","b. Preventing the spread of severe diseases","c. Having natural resources to use for a long time","d. Making everyone beautiful"],a:"b"},
-<script>
-  // ข้อ 31–40
-  questions.push(
-    { q: "31. Which of the following helps prevent negative effect in using computer?", opts: ["a. You can use the computer for the whole day.", "b. Place computer where there is fresh air in order to release the heat.", "c. Keeping the computer on always.", "d. Increase the brightness of the computer"], a: "b" },
-    { q: "32. What is the positive effect of gender equality regarding education?", opts: ["a. Economy of the country grows.", "b. Reducing the population", "c. Having efficient human resource to develop the country", "d. Having more tourists coming to the country"], a: "c" },
-    { q: "33. What is the benefit of good behavior with the opposite sex?", opts: ["a. Preventing sexual problems", "b. Having a lot of friends who are the opposite sex", "c. Building fame to family", "d. Receiving the prize as student's model"], a: "a" },
-    { q: "34. What should we do when going to fitness?", opts: ["a. Search for information from those who already used the service", "b. Choose a service with only few customers.", "c. Choose the expensive service", "d. Choose the famous service"], a: "a" },
-    { q: "35. Which medical advancement helps people have a longer life?", opts: ["a. Artificial insemination", "b. Performing acupuncture to increase height", "c. Creating artificial organs", "d. Having LASIK to solve eye problems"], a: "c" },
-    { q: "36. Which of the following is a prevention of negative effect in watching TV?", opts: ["a. Turn on with a high volume.", "b. Watch television at a closer distance", "c. Watch TV for a long period of time.", "d. Watch television when there is enough light"], a: "d" },
-    { q: "37. Which of the following is a negative effect of mobile phones?", opts: ["a. Use mobile phones when necessary.", "b. It can cause deafness, when the volume is always loud", "c. Avoid listening when sleeping especially with the heavy rhythm.", "d. Do not use cellphones for a long time."], a: "b" },
-    { q: "38. Which one is the effect of technology regarding communication?", opts: ["a. Having stomachache because of eating spicy food", "b. Having stress because of doing tent", "c. Being deaf because of talking on the phone for a long time", "d. Having backache because of lifting things incorrectly"], a: "c" },
-    { q: "39. A thin plastic with specific curve designed for placing on a cornea.", opts: ["a. Plastic surgery", "b. Orthodontics", "c. Contact lens", "d. Eye glasses"], a: "c" },
-    { q: "40. Why do mobile phones cause brain trauma?", opts: ["a. Due to the radiation signals that are spread from the mobile phones.", "b. Watching television when there is enough light", "c. Listening to the speaker.", "d. Holding mobile phones for a long time."], a: "a" }
-  );
-</script>
+  { q: "1. It is applying the scientific knowledge and methods to develop new tools to help society.", opts: ["a. food", "b. technology", "c. business", "d. ?"], a: "b" },
+  { q: "2. Which has not a technology?", opts: ["a. Using human force to harvest rice", "b. Using robots to do the operation", "c. Sending messages through mobile phones", "d. Using cleaning machines to clean the house"], a: "a" },
+  { q: "3. What is the usefulness of medical technology?", opts: ["a. Promote the energy conservation", "b. Reduce the death rate of population", "c. Industrial business expands.", "d. Crime decreases"], a: "b" },
+  { q: "4. What should we consider when buying health products?", opts: ["a. Necessary", "b. Free product", "c. Popularity", "d. Advertisement from favorite stars"], a: "a" },
+  { q: "5. Which health product should you purchase?", opts: ["a. Drinking water", "b. Cosmetics", "c. Popular snack", "d. Dish cleaner"], a: "a" },
+  { q: "6. It affects the decision to purchase products and health services.", opts: ["a. Advertisement", "b. Culture", "c. Friend", "d. Politicians"], a: "a" },
+  { q: "7. The service of the government that provides health services to the people.", opts: ["a. Food services", "b. Health Insurance", "c. Health Services", "d. Health Products"], a: "c" },
+  { q: "8. Which is the characteristic of public health service?", opts: ["a. People can access easily and the service is standardized.", "b. The service is only for few people.", "c. People do not pay for treatment.", "d. Nervous hospital"], a: "a" },
+  { q: "9. Which is not a label of a health product?", opts: ["a. Warning", "b. Net weight", "c. Name of the owner", "d. Procedure"], a: "c" },
+  { q: "10. What is the purpose of the health insurance project?", opts: ["a. Improve ability of doctors", "b. Allow people to have standardized and equal health.", "c. the poor and disordered.", "d. Dish cleaner that is sold in the community"], a: "b" },
+  { q: "11. How does using computers for a long time affect health?", opts: ["a. Causing pimples on the face", "b. Causing overweight", "c. Causing brain damage", "d. Causing headache and vomiting"], a: "d" },
+  { q: "12. Which medical advancement affects teenager's health the most?", opts: ["a. Wearing contact lens.", "b. Having plastic surgery", "c. Transferring organs", "d. Orthodontics"], a: "d" },
+  { q: "13. Which medical advancement is very dangerous?", opts: ["a. Wearing contact lens to solve eye problems", "b. Orthodontics", "c. Having nose surgery after the accident", "d. Having an abortion"], a: "d" },
+  { q: "14. It is a popular medical advancement that strengthen and align the teeth.", opts: ["a. Orthodontics", "b. Contact lens", "c. Plastic surgery", "d. Hair culture"], a: "a" },
+  { q: "15. What is public health technology?", opts: ["a. The scientific knowledge to explore the outer space", "b. The method to increase farm products", "c. It is the scientific knowledge of treating disease.", "d. It is use in travelling conveniently."], a: "c" },
+  { q: "16. Which of the following is a disadvantage of orthodontics?", opts: ["a. It prevents gum disease.", "b. Helps speaking clearly.", "c. Gives confidence in oneself.", "d. Feel pain from the changing position of teeth."], a: "d" },
+  { q: "17. Which is not a kind of health services?", opts: ["a. Specific health service", "b. Transferring patients comfortably and fast.", "c. Loans", "d. Health Insurance"], a: "c" },
+  { q: "18. Which is not a health product?", opts: ["a. a newspaper", "b. toothpaste", "c. measuring pressure device", "d. cough medicine"], a: "a" },
+  { q: "19. The change that shows the growth and development of a teenager's height and weight.", opts: ["a. Physical", "b. Mental", "c. Social", "d. Emotional"], a: "a" },
+  { q: "20. Which technology positively affects health?", opts: ["a. Using a mobile phone in high frequency areas", "b. Arranging a trip to outer space", "c. Manufacturing a car that uses water instead of oil", "d. Creating 3D movies"], a: "c" },
+  { q: "21. If you do not receive fair service in purchasing health products, who should you call for?", opts: ["a. Ministry of Interior", "b. Police station", "c. Office of the consumer board", "d. The King"], a: "c" },
+  { q: "22. Which health services is a specific health service?", opts: ["a. Priest hospital", "b. Bangkok Hospital", "c. Nervous hospital", "d. Siriraj hospital"], a: "c" },
+  { q: "23. Which one is not a public health service?", opts: ["a. Thai massage", "b. Public health station", "c. Drugstore", "d. District hospital"], a: "a" },
+  { q: "24. The products that consumers use in order to live healthy.", opts: ["a. Socialization", "b. Intellectual technology", "c. Health product", "d. Physical fitness"], a: "c" },
+  { q: "25. What is the positive effect of medical advancement towards the world population?", opts: ["a. Population has better education", "b. Preventing the spread of severe diseases", "c. Having natural resources to use for a long time", "d. Making everyone beautiful"], a: "b" },
+  { q: "26. What is the effect of plastic surgery?", opts: ["a. Losing personality and confidence", "b. Being careful in doing activities", "c. Immune system deficiency", "d. Aging"], a: "d" },
+  { q: "27. Which of the following is a health product?", opts: ["a. Exercise", "b. Food", "c. Musical instrument", "d. Body odor"], a: "b" },
+  { q: "28. Which is not a concept in buying health products?", opts: ["a. Choose products that are necessary.", "b. Choose products that provide all the details", "c. Choose products that are in clean containers", "d. Choose products that are expensive and fashionable"], a: "d" },
+  { q: "29. It can access the teenagers quickly because of technology", opts: ["a. Culture", "b. Friends", "c. Media", "d. Money"], a: "c" },
+  { q: "30. It gives enough nutrients for the rapid change of the teenager's body.", opts: ["a. Food", "b. Exercising", "c. Sickness", "d. Technology"], a: "a" },
+  // 31-40 (example)
+  { q: "31. Which is important to prevent diseases?", opts: ["a. Hygiene", "b. Laziness", "c. Watching TV", "d. Pollution"], a: "a" },
+  { q: "32. Which is considered a medical technology?", opts: ["a. Stethoscope", "b. Pencil", "c. Bicycle", "d. Book"], a: "a" },
+  { q: "33. What should you do before taking medicine?", opts: ["a. Read instruction", "b. Ignore it", "c. Mix with alcohol", "d. Skip meals"], a: "a" },
+  { q: "34. Which exercise helps health?", opts: ["a. Running", "b. Sleeping", "c. Watching TV", "d. Sitting"], a: "a" },
+  { q: "35. Which food is healthiest?", opts: ["a. Vegetables", "b. Candy", "c. Soda", "d. Chips"], a: "a" },
+  { q: "36. Which habit prevents diseases?", opts: ["a. Hand washing", "b. Smoking", "c. Eating junk food", "d. Skipping meals"], a: "a" },
+  { q: "37. What is a technology for communication?", opts: ["a. Mobile phone", "b. Stone", "c. Bicycle", "d. Pencil"], a: "a" },
+  { q: "38. Which service helps sick people?", opts: ["a. Hospital", "b. Cinema", "c. Restaurant", "d. School"], a: "a" },
+  { q: "39. Which activity improves mental health?", opts: ["a. Meditation", "b. Watching TV", "c. Sleeping all day", "d. Eating junk food"], a: "a" },
+  { q: "40. What is the main goal of public health?", opts: ["a. Keep people healthy", "b. Make profits", "c. Build factories", "d. Travel"], a: "a" }
+];
+
+const total = questions.length;
+let idx = 0;
+const answers = Array(total).fill(null);
+
+const startScreen = document.getElementById('startScreen');
+const startBtn = document.getElementById('startBtn');
+const quizArea = document.getElementById('quizArea');
+const qIndexEl = document.getElementById('qIndex');
+const qTotalEl = document.getElementById('qTotal');
+const qTextEl = document.getElementById('qText');
+const optionsEl = document.getElementById('options');
+const backBtn = document.getElementById('backBtn');
+const nextBtn = document.getElementById('nextBtn');
+const submitBtn = document.getElementById('submitBtn');
+const restartBtn = document.getElementById('restartBtn');
+const progressBar = document.getElementById('progressBar');
+const resultArea = document.getElementById('resultArea');
+const scoreNum = document.getElementById('scoreNum');
+const summaryText = document.getElementById('summaryText');
+
+qTotalEl.textContent = total;
+
+startBtn.addEventListener('click', ()=>{
+  startScreen.style.display = 'none';
+  quizArea.style
