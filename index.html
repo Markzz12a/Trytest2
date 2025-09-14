@@ -3,235 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Health Teen Quiz Part 1</title>
+<title>Health Teen Quiz 1–40</title>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 <style>
-body {
-    font-family: 'Roboto', sans-serif;
-    background: linear-gradient(to right, #f0f8ff, #e6f2ff);
-    padding: 20px;
-}
-h1 {
-    text-align: center;
-    color: #2c3e50;
-}
-.question {
-    background: #ffffffcc;
-    padding: 15px;
-    margin: 15px 0;
-    border-radius: 12px;
-    box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
-}
-.answers label {
-    display: block;
-    margin: 8px 0;
-    cursor: pointer;
-    padding: 6px;
-    border-radius: 6px;
-    transition: 0.3s;
-}
-.answers input[type="radio"] {
-    margin-right: 10px;
-}
-.answers label:hover {
-    background-color: #d6f0ff;
-}
-button {
-    background-color: #3498db;
-    color: white;
-    padding: 12px 25px;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    cursor: pointer;
-    margin-top: 10px;
-}
-button:hover {
-    background-color: #1d6fa5;
-}
-#result {
-    margin-top: 20px;
-    padding: 15px;
-    background: #f8f8f8;
-    border-radius: 12px;
-}
-.correct { color: green; font-weight: bold; }
-.wrong { color: red; font-weight: bold; }
-.explanation { font-style: italic; color: #555; margin-left: 10px; }
-</style>
-</head>
-<body>
-
-<h1>Health Teen Quiz Part 1 (ข้อ 1–10)</h1>
-
-<div class="question">
-<p>1. A teenager's change which results in the development of the brain and genetics</p>
-<div class="answers">
-<label><input type="radio" name="q1" value="A"> A. Social Change</label>
-<label><input type="radio" name="q1" value="B"> B. Physical Change</label>
-<label><input type="radio" name="q1" value="C"> C. Emotional Change</label>
-<label><input type="radio" name="q1" value="D"> D. Intellectual Change</label>
-</div>
-<div class="feedback" id="f1"></div>
-</div>
-
-<div class="question">
-<p>2. Which of the following is the effect of emotional changes in teenagers?</p>
-<div class="answers">
-<label><input type="radio" name="q2" value="A"> A. Fighting with students</label>
-<label><input type="radio" name="q2" value="B"> B. Getting lower grades in Math</label>
-<label><input type="radio" name="q2" value="C"> C. Overweight</label>
-<label><input type="radio" name="q2" value="D"> D. Being with friends with the same interest</label>
-</div>
-<div class="feedback" id="f2"></div>
-</div>
-
-<div class="question">
-<p>3. How do appropriate teenager's growth and development affect society?</p>
-<div class="answers">
-<label><input type="radio" name="q3" value="A"> A. The number of populations decreases</label>
-<label><input type="radio" name="q3" value="B"> B. There are efficient and qualified people to improve the country</label>
-<label><input type="radio" name="q3" value="C"> C. The quality of the educational system is better</label>
-<label><input type="radio" name="q3" value="D"> D. The crime increases</label>
-</div>
-<div class="feedback" id="f3"></div>
-</div>
-
-<div class="question">
-<p>4. Which change among teenagers shows readiness for reproduction?</p>
-<div class="answers">
-<label><input type="radio" name="q4" value="A"> A. Having pubic hair</label>
-<label><input type="radio" name="q4" value="B"> B. Strong muscles</label>
-<label><input type="radio" name="q4" value="C"> C. Having menstruation</label>
-<label><input type="radio" name="q4" value="D"> D. Bigger breasts</label>
-</div>
-<div class="feedback" id="f4"></div>
-</div>
-
-<div class="question">
-<p>5. The physical changes of teenagers that are obvious</p>
-<div class="answers">
-<label><input type="radio" name="q5" value="A"> A. Bone and teeth</label>
-<label><input type="radio" name="q5" value="B"> B. Height and weight</label>
-<label><input type="radio" name="q5" value="C"> C. Body odor</label>
-<label><input type="radio" name="q5" value="D"> D. Reproductive system</label>
-</div>
-<div class="feedback" id="f5"></div>
-</div>
-
-<div class="question">
-<p>6. How does being pregnant at school age affect the family?</p>
-<div class="answers">
-<label><input type="radio" name="q6" value="A"> A. Increasing family's expenses</label>
-<label><input type="radio" name="q6" value="B"> B. Receiving more family members</label>
-<label><input type="radio" name="q6" value="C"> C. Needing to move away and live somewhere else</label>
-<label><input type="radio" name="q6" value="D"> D. Decreasing income of the family</label>
-</div>
-<div class="feedback" id="f6"></div>
-</div>
-
-<div class="question">
-<p>7. What does AIDS stand for?</p>
-<div class="answers">
-<label><input type="radio" name="q7" value="A"> A. Acquired Intelligence Doing Something</label>
-<label><input type="radio" name="q7" value="B"> B. An Individual Dating Someone</label>
-<label><input type="radio" name="q7" value="C"> C. Agreement Immunity Dating Someone</label>
-<label><input type="radio" name="q7" value="D"> D. Acquired Immune Deficiency Syndrome</label>
-</div>
-<div class="feedback" id="f7"></div>
-</div>
-
-<div class="question">
-<p>8. What hormone develops the growth of muscle and bone of a teenager?</p>
-<div class="answers">
-<label><input type="radio" name="q8" value="A"> A. Estrogen</label>
-<label><input type="radio" name="q8" value="B"> B. Androgen</label>
-<label><input type="radio" name="q8" value="C"> C. Sebaceous fats</label>
-<label><input type="radio" name="q8" value="D"> D. Cortisone</label>
-</div>
-<div class="feedback" id="f8"></div>
-</div>
-
-<div class="question">
-<p>9. What is the benefit of having a good behavior?</p>
-<div class="answers">
-<label><input type="radio" name="q9" value="A"> A. Having a lot of friends in the opposite sex</label>
-<label><input type="radio" name="q9" value="B"> B. Preventing sexual problems</label>
-<label><input type="radio" name="q9" value="C"> C. Building fame to family</label>
-<label><input type="radio" name="q9" value="D"> D. Receiving a prize as a model student</label>
-</div>
-<div class="feedback" id="f9"></div>
-</div>
-
-<div class="question">
-<p>10. A factor that influences teenagers' attitude such as comics, novels with sexual pictures/stories, pornographic videos and computer games.</p>
-<div class="answers">
-<label><input type="radio" name="q10" value="A"> A. Culture</label>
-<label><input type="radio" name="q10" value="B"> B. Media</label>
-<label><input type="radio" name="q10" value="C"> C. Family</label>
-<label><input type="radio" name="q10" value="D"> D. Friend</label>
-</div>
-<div class="feedback" id="f10"></div>
-</div>
-
-<button onclick="checkAnswers()">ตรวจคำตอบ</button>
-<div id="result"></div>
-
-<script>
-const answerKey = {
-q1:"D", q2:"B", q3:"B", q4:"C", q5:"B", q6:"A", q7:"D", q8:"B", q9:"B", q10:"B"
-};
-const explanation = {
-q1:"ถูกต้อง: Intellectual Change คือการพัฒนาสมองและความคิด. ผิดหมายถึงยังเป็นร่างกายหรืออารมณ์. เรียนหัวข้อ 'การเจริญเติบโตทางสมอง'.",
-q2:"ถูกต้อง: การเปลี่ยนอารมณ์อาจทำให้เกรดลดลง. หากคิดว่า 'ทะเลาะเพื่อน' เป็นสังคม, ต้องเรียน 'อารมณ์วัยรุ่น'.",
-q3:"ถูกต้อง: การเติบโตเหมาะสมทำให้มีคนมีความสามารถพัฒนาประเทศ. ถ้าคิดผิด เรียน 'ผลกระทบต่อสังคมของวัยรุ่น'.",
-q4:"ถูกต้อง: Menstruation หรือการมีประจำเดือนแสดงความพร้อมสืบพันธุ์. ผิดคือดูจากกล้ามเนื้อ. เรียน 'ความพร้อมทางเพศ'.",
-q5:"ถูกต้อง: Height & Weight เป็นสิ่งสังเกตง่าย. ผิดคิดว่า Body odor. เรียน 'การเปลี่ยนแปลงร่างกาย'.",
-q6:"ถูกต้อง: ค่าใช้จ่ายเพิ่ม. ผิดคิดว่าได้สมาชิกใหม่. เรียน 'ผลกระทบครอบครัว'.",
-q7:"ถูกต้อง: AIDS = Acquired Immune Deficiency Syndrome. ผิดคือเลือกคำอื่น. เรียน 'คำย่อโรค'.",
-q8:"ถูกต้อง: Androgen ทำให้กล้ามเนื้อและกระดูกเจริญ. ผิดคิด Estrogen. เรียน 'ฮอร์โมนวัยรุ่น'.",
-q9:"ถูกต้อง: พฤติกรรมดีช่วยป้องกันปัญหาทางเพศ. ผิดคิดเพื่อตัวเอง. เรียน 'ผลประโยชน์ของพฤติกรรมดี'.",
-q10:"ถูกต้อง: Media มีอิทธิพลต่อทัศนคติ. ผิดคิดว่า Culture/Family. เรียน 'ปัจจัยภายนอกต่อวัยรุ่น'."
-};
-
-function checkAnswers(){
-let score=0;
-for(let i=1;i<=10;i++){
-let q=document.querySelector(`input[name="q${i}"]:checked`);
-let fb=document.getElementById(`f${i}`);
-if(q){
-if(q.value===answerKey[`q${i}`]){
-fb.innerHTML=`<span class="correct">ถูกต้อง!</span> <span class="explanation">${explanation[`q${i}`]}</span>`;
-score++;
-}else{
-fb.innerHTML=`<span class="wrong">ผิด!</span> <span class="explanation">${explanation[`q${i}`]}</span>`;
-}
-}else{
-fb.innerHTML=`<span class="wrong">ยังไม่ได้ตอบ!</span>`;
-}
-}
-document.getElementById("result").innerText=`คุณได้คะแนน ${score}/10`;
-}
-</script>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="th">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Health Teen Quiz Part 3</title>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-<style>
-body { font-family: 'Roboto', sans-serif; background: linear-gradient(to right, #f0fff0, #e6ffe6); padding: 20px; }
-h1 { text-align: center; color: #2c3e50; }
+body { font-family: 'Roboto', sans-serif; background: linear-gradient(to right, #f0f8ff, #e6f2ff); padding: 20px; }
+h1 { text-align: center; color: #2c3e50; margin-bottom: 20px; }
 .question { background: #ffffffcc; padding: 15px; margin: 15px 0; border-radius: 12px; box-shadow: 0px 4px 6px rgba(0,0,0,0.1);}
 .answers label { display: block; margin: 8px 0; cursor: pointer; padding: 6px; border-radius: 6px; transition: 0.3s;}
 .answers input[type="radio"] { margin-right: 10px; }
-.answers label:hover { background-color: #ccffcc; }
-button { background-color: #4caf50; color: white; padding: 12px 25px; border: none; border-radius: 8px; font-size: 16px; cursor: pointer; margin-top: 10px; }
-button:hover { background-color: #2e7d32; }
+.answers label:hover { background-color: #d6f0ff; }
+button { background-color: #3498db; color: white; padding: 12px 25px; border: none; border-radius: 8px; font-size: 16px; cursor: pointer; margin-top: 10px; }
+button:hover { background-color: #1d6fa5; }
 #result { margin-top: 20px; padding: 15px; background: #f8f8f8; border-radius: 12px; }
 .correct { color: green; font-weight: bold; }
 .wrong { color: red; font-weight: bold; }
@@ -240,322 +22,133 @@ button:hover { background-color: #2e7d32; }
 </head>
 <body>
 
-<h1>Health Teen Quiz Part 3 (ข้อ 21–30)</h1>
+<h1>Health Teen Quiz 1–40</h1>
 
-<!-- Question 21 -->
-<div class="question">
-<p>21. Which of the following shows sexual change among male?</p>
-<div class="answers">
-<label><input type="radio" name="q21" value="A"> A. Have soft skin</label>
-<label><input type="radio" name="q21" value="B"> B. Breasts become bigger</label>
-<label><input type="radio" name="q21" value="C"> C. Have menstruation</label>
-<label><input type="radio" name="q21" value="D"> D. Larynx enlarges</label>
-</div>
-<div class="feedback" id="f21"></div>
-</div>
-
-<!-- Question 22 -->
-<div class="question">
-<p>22. Which of the following is from genetic inheritance?</p>
-<div class="answers">
-<label><input type="radio" name="q22" value="A"> A. Lack of confidence</label>
-<label><input type="radio" name="q22" value="B"> B. Addiction to drugs</label>
-<label><input type="radio" name="q22" value="C"> C. Loves gambling</label>
-<label><input type="radio" name="q22" value="D"> D. Having Thalassemia</label>
-</div>
-<div class="feedback" id="f22"></div>
-</div>
-
-<!-- Question 23 -->
-<div class="question">
-<p>23. How does eating the five food groups affect teenagers?</p>
-<div class="answers">
-<label><input type="radio" name="q23" value="A"> A. Standard weight</label>
-<label><input type="radio" name="q23" value="B"> B. Stable emotions</label>
-<label><input type="radio" name="q23" value="C"> C. Having high intellect</label>
-<label><input type="radio" name="q23" value="D"> D. Adapting to others easily</label>
-</div>
-<div class="feedback" id="f23"></div>
-</div>
-
-<!-- Question 24 -->
-<div class="question">
-<p>24. If you want to improve your social development, what should you do?</p>
-<div class="answers">
-<label><input type="radio" name="q24" value="A"> A. Looking for knowledge that is interesting</label>
-<label><input type="radio" name="q24" value="B"> B. Surfing the internet</label>
-<label><input type="radio" name="q24" value="C"> C. Exercising in free time</label>
-<label><input type="radio" name="q24" value="D"> D. Accepting other's opinions</label>
-</div>
-<div class="feedback" id="f24"></div>
-</div>
-
-<!-- Question 25 -->
-<div class="question">
-<p>25. Which of the following is a risk for sexual intercourse at school age?</p>
-<div class="answers">
-<label><input type="radio" name="q25" value="A"> A. Eating lunch together at school</label>
-<label><input type="radio" name="q25" value="B"> B. Doing homework together in the classroom</label>
-<label><input type="radio" name="q25" value="C"> C. Lying together on the bed</label>
-<label><input type="radio" name="q25" value="D"> D. Walking home together</label>
-</div>
-<div class="feedback" id="f25"></div>
-</div>
-
-<!-- Question 26 -->
-<div class="question">
-<p>26. Which saying helps prevent STD?</p>
-<div class="answers">
-<label><input type="radio" name="q26" value="A"> A. Lady's man</label>
-<label><input type="radio" name="q26" value="B"> B. Respecting oneself</label>
-<label><input type="radio" name="q26" value="C"> C. Quick-tempered</label>
-<label><input type="radio" name="q26" value="D"> D. Flirting with others</label>
-</div>
-<div class="feedback" id="f26"></div>
-</div>
-
-<!-- Question 27 -->
-<div class="question">
-<p>27. If your friend wants you to watch pornographic movies, what would you say?</p>
-<div class="answers">
-<label><input type="radio" name="q27" value="A"> A. "What is the name of the movie, is it fun?"</label>
-<label><input type="radio" name="q27" value="B"> B. "Not too long because I need to go home early"</label>
-<label><input type="radio" name="q27" value="C"> C. "I don't want to watch now; I am not in the mood"</label>
-<label><input type="radio" name="q27" value="D"> D. "I will not watch because it is not appropriate for our age"</label>
-</div>
-<div class="feedback" id="f27"></div>
-</div>
-
-<!-- Question 28 -->
-<div class="question">
-<p>28. Which of the following helps prevent unwanted pregnancy problems?</p>
-<div class="answers">
-<label><input type="radio" name="q28" value="A"> A. Avoiding hanging out with friends at night</label>
-<label><input type="radio" name="q28" value="B"> B. Taking birth control pill every month</label>
-<label><input type="radio" name="q28" value="C"> C. Keeping the body clean</label>
-<label><input type="radio" name="q28" value="D"> D. Not having opposite sex friends</label>
-</div>
-<div class="feedback" id="f28"></div>
-</div>
-
-<!-- Question 29 -->
-<div class="question">
-<p>29. The inheritance from parents that will be set by DNA and genes.</p>
-<div class="answers">
-<label><input type="radio" name="q29" value="A"> A. Genetics</label>
-<label><input type="radio" name="q29" value="B"> B. Human Structure</label>
-<label><input type="radio" name="q29" value="C"> C. Food</label>
-<label><input type="radio" name="q29" value="D"> D. Social</label>
-</div>
-<div class="feedback" id="f29"></div>
-</div>
-
-<!-- Question 30 -->
-<div class="question">
-<p>30. A hormone in male that causes teenagers to have sexual feeling.</p>
-<div class="answers">
-<label><input type="radio" name="q30" value="A"> A. Testosterone</label>
-<label><input type="radio" name="q30" value="B"> B. Collagen</label>
-<label><input type="radio" name="q30" value="C"> C. Estrogen</label>
-<label><input type="radio" name="q30" value="D"> D. Thalassemia</label>
-</div>
-<div class="feedback" id="f30"></div>
-</div>
+<div id="quiz"></div>
 
 <button onclick="checkAnswers()">ตรวจคำตอบ</button>
 <div id="result"></div>
 
 <script>
-const answerKey={
-q21:"D",q22:"D",q23:"A",q24:"D",q25:"C",
-q26:"B",q27:"D",q28:"A",q29:"A",q30:"A"
-};
+// ====== ข้อมูลข้อสอบ ======
+const questions = [
+{q:"1. A teenager's change which results in the development of the brain and genetics",
+ a:["Social Change","Physical Change","Emotional Change","Intellectual Change"], c:"D"},
+{q:"2. Which of the following is the effect of emotional changes in teenagers?",
+ a:["Fighting with students","Getting lower grades in Math","Overweight","Being with friends with the same interest"], c:"B"},
+{q:"3. How do appropriate teenager's growth and development affect society?",
+ a:["The number of populations decreases","There are efficient and qualified people to improve the country","The quality of the educational system is better","The crime increases"], c:"B"},
+{q:"4. Which change among teenagers shows readiness for reproduction?",
+ a:["Having pubic hair","Strong muscles","Having menstruation","Bigger breasts"], c:"C"},
+{q:"5. The physical changes of teenagers that are obvious",
+ a:["Bone and teeth","Height and weight","Body odor","Reproductive system"], c:"B"},
+{q:"6. How does being pregnant at school age affect the family?",
+ a:["Increasing family's expenses","Receiving more family members","Needing to move away and live somewhere else","Decreasing income of the family"], c:"A"},
+{q:"7. What does AIDS stand for?",
+ a:["Acquired Intelligence Doing Something","An Individual Dating Someone","Agreement Immunity Dating Someone","Acquired Immune Deficiency Syndrome"], c:"D"},
+{q:"8. What hormone develops the growth of muscle and bone of a teenager?",
+ a:["Estrogen","Androgen","Sebaceous fats","Cortisone"], c:"B"},
+{q:"9. What is the benefit of having a good behavior?",
+ a:["Having a lot of friends in the opposite sex","Preventing sexual problems","Building fame to family","Receiving a prize as a model student"], c:"B"},
+{q:"10. A factor that influences teenagers' attitude such as comics, novels with sexual pictures/stories, pornographic videos and computer games.",
+ a:["Culture","Media","Family","Friend"], c:"B"},
 
-const explanation={
-q21:"ถูกต้อง: Larynx enlarges เป็นสัญญาณชายวัยรุ่น. ผิดคิดผิว/หน้าอก/ผู้หญิง. เรียน 'การเปลี่ยนแปลงทางเพศชาย'.",
-q22:"ถูกต้อง: Thalassemia เป็นกรรมพันธุ์. ผิดคิดพฤติกรรม. เรียน 'กรรมพันธุ์'.",
-q23:"ถูกต้อง: กินครบ 5 หมู่ช่วยน้ำหนักมาตรฐาน. ผิดคิดอื่น. เรียน 'โภชนาการวัยรุ่น'.",
-q24:"ถูกต้อง: การยอมรับความคิดเห็นผู้อื่นช่วยพัฒนาสังคม. ผิดคิดหาเนื้อหาน่าสนใจ. เรียน 'พัฒนาการสังคม'.",
-q25:"ถูกต้อง: นอนด้วยบนเตียงมีความเสี่ยงสูงสุด. ผิดคิดเดินบ้าน/ทำการบ้าน. เรียน 'ความเสี่ยงทางเพศ'.",
-q26:"ถูกต้อง: Respecting oneself ช่วยป้องกัน STD. ผิดคิด Lady’s man/Flirt. เรียน 'การเคารพตนเอง'.",
-q27:"ถูกต้อง: ปฏิเสธเพราะไม่เหมาะสมตามวัย. ผิดคิดดูสนุก/ไม่เต็มใจ. เรียน 'การปฏิเสธสิ่งไม่เหมาะสม'.",
-q28:"ถูกต้อง: หลีกเลี่ยงออกกลางคืนช่วยป้องกันท้องไม่พร้อม. ผิดคิดกินยา/เพื่อน. เ
-    <!DOCTYPE html>
-<html lang="th">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Health Teen Quiz Part 4</title>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-<style>
-body { font-family: 'Roboto', sans-serif; background: linear-gradient(to right, #e0f7fa, #b2ebf2); padding: 20px; }
-h1 { text-align: center; color: #006064; }
-.question { background: #ffffffcc; padding: 15px; margin: 15px 0; border-radius: 12px; box-shadow: 0px 4px 6px rgba(0,0,0,0.1);}
-.answers label { display: block; margin: 8px 0; cursor: pointer; padding: 6px; border-radius: 6px; transition: 0.3s;}
-.answers input[type="radio"] { margin-right: 10px; }
-.answers label:hover { background-color: #80deea; }
-button { background-color: #0097a7; color: white; padding: 12px 25px; border: none; border-radius: 8px; font-size: 16px; cursor: pointer; margin-top: 10px; }
-button:hover { background-color: #006064; }
-#result { margin-top: 20px; padding: 15px; background: #f8f8f8; border-radius: 12px; }
-.correct { color: green; font-weight: bold; }
-.wrong { color: red; font-weight: bold; }
-.explanation { font-style: italic; color: #555; margin-left: 10px; }
-</style>
-</head>
-<body>
+// ===== 11-20 =====
+{q:"11. Which of the following is NOT a healthy habit?",
+ a:["Exercising daily","Eating junk food","Drinking enough water","Sleeping well"], c:"B"},
+{q:"12. Which nutrient is essential for strong bones?",
+ a:["Vitamin C","Calcium","Vitamin B12","Iron"], c:"B"},
+{q:"13. What is the recommended amount of daily sleep for teenagers?",
+ a:["5–6 hours","6–7 hours","7–8 hours","8–10 hours"], c:"D"},
+{q:"14. Which activity helps improve mental health?",
+ a:["Watching TV all day","Exercising","Skipping meals","Playing video games excessively"], c:"B"},
+{q:"15. Which of the following prevents tooth decay?",
+ a:["Brushing teeth twice a day","Eating candy","Drinking soda","Not flossing"], c:"A"},
+{q:"16. Which factor contributes to obesity?",
+ a:["Regular exercise","Eating vegetables","High sugar intake","Sleeping enough"], c:"C"},
+{q:"17. What is an effect of smoking on teenagers?",
+ a:["Improved lung function","Reduced stamina","Better skin","Increased energy"], c:"B"},
+{q:"18. Which is a symptom of depression?",
+ a:["Persistent sadness","Happy mood all day","Excess energy","No change in appetite"], c:"A"},
+{q:"19. How can teenagers prevent diseases?",
+ a:["Ignoring symptoms","Regular exercise and healthy diet","Skipping vaccines","Eating fast food daily"], c:"B"},
+{q:"20. What is a sign of good physical fitness?",
+ a:["High stamina","Poor posture","Excessive weight gain","Lethargy"], c:"A"},
 
-<h1>Health Teen Quiz Part 4 (ข้อ 31–40)</h1>
+// ===== 21-30 =====
+{q:"21. What is the main function of the heart?",
+ a:["Digest food","Pump blood","Store nutrients","Filter air"], c:"B"},
+{q:"22. Which organ filters waste from blood?",
+ a:["Heart","Kidneys","Liver","Lungs"], c:"B"},
+{q:"23. Which vitamin helps in blood clotting?",
+ a:["Vitamin K","Vitamin D","Vitamin A","Vitamin C"], c:"A"},
+{q:"24. What is a symptom of dehydration?",
+ a:["Headache","Clear urine","Increased appetite","Excessive sleep"], c:"A"},
+{q:"25. What should teenagers do to prevent skin problems?",
+ a:["Avoid sun exposure","Eat more sugar","Use proper skincare","Sleep less"], c:"C"},
+{q:"26. What is the effect of regular exercise?",
+ a:["Weak muscles","Improved stamina","Weight gain only","Sleep deprivation"], c:"B"},
+{q:"27. Which food is high in protein?",
+ a:["Rice","Chicken","Candy","Soft drink"], c:"B"},
+{q:"28. Which of the following helps improve concentration?",
+ a:["Multitasking","Studying in a quiet place","Using phone constantly","Skipping meals"], c:"B"},
+{q:"29. What is a sign of proper nutrition?",
+ a:["Healthy hair and skin","Frequent fatigue","Weak immunity","Poor growth"], c:"A"},
+{q:"30. Which habit reduces the risk of infection?",
+ a:["Not washing hands","Regular hand washing","Sharing utensils","Ignoring hygiene"], c:"B"},
 
-<!-- Question 31 -->
-<div class="question">
-<p>31. Adolescence period during 16-19 years?</p>
-<div class="answers">
-<label><input type="radio" name="q31" value="A"> A. Early</label>
-<label><input type="radio" name="q31" value="B"> B. Middle</label>
-<label><input type="radio" name="q31" value="C"> C. Late</label>
-<label><input type="radio" name="q31" value="D"> D. Toddler</label>
-</div>
-<div class="feedback" id="f31"></div>
-</div>
+// ===== 31-40 =====
+{q:"31. Which exercise strengthens leg muscles?",
+ a:["Push-ups","Running","Pull-ups","Sit-ups"], c:"B"},
+{q:"32. Which food contains fiber?",
+ a:["Vegetables","Meat","Candy","Cheese"], c:"A"},
+{q:"33. Which nutrient is important for eyesight?",
+ a:["Protein","Calcium","Vitamin A","Fat"], c:"C"},
+{q:"34. What helps to improve mental focus?",
+ a:["Sleeping well","Eating junk food","Watching TV","Skipping meals"], c:"A"},
+{q:"35. Which of the following can lead to obesity?",
+ a:["Skipping meals","Regular exercise","Overeating","Sleeping enough"], c:"C"},
+{q:"36. Which is a healthy beverage?",
+ a:["Soda","Juice with sugar","Water","Energy drink"], c:"C"},
+{q:"37. Which habit improves heart health?",
+ a:["Smoking","Regular exercise","Eating fast food","Staying inactive"], c:"B"},
+{q:"38. Which food should be limited for healthy diet?",
+ a:["Vegetables","Fruits","Candy","Lean meat"], c:"C"},
+{q:"39. Which is important for strong bones?",
+ a:["Vitamin D","Sugar","Salt","Fat"], c:"A"},
+{q:"40. Which activity reduces stress?",
+ a:["Meditation","Overworking","Smoking","Watching horror movies"], c:"A"}
+];
 
-<!-- Question 32 -->
-<div class="question">
-<p>32. It is caused by bacteria infecting through sex or touching clothes of patients.</p>
-<div class="answers">
-<label><input type="radio" name="q32" value="A"> A. Syphilis</label>
-<label><input type="radio" name="q32" value="B"> B. AIDS</label>
-<label><input type="radio" name="q32" value="C"> C. Gonorrhea</label>
-<label><input type="radio" name="q32" value="D"> D. HIV</label>
-</div>
-<div class="feedback" id="f32"></div>
-</div>
+// ====== สร้างข้อสอบในหน้า ======
+const quizDiv = document.getElementById('quiz');
+questions.forEach((item,i)=>{
+    let html = `<div class="question">
+        <p>${item.q}</p>
+        <div class="answers">`;
+    const letters = ["A","B","C","D"];
+    item.a.forEach((ans,j)=>{
+        html += `<label><input type="radio" name="q${i+1}" value="${letters[j]}"> ${ans}</label>`;
+    });
+    html += `</div><div class="feedback" id="f${i+1}"></div></div>`;
+    quizDiv.innerHTML += html;
+});
 
-<!-- Question 33 -->
-<div class="question">
-<p>33. What does HIV stand for?</p>
-<div class="answers">
-<label><input type="radio" name="q33" value="A"> A. High Immunity Virus</label>
-<label><input type="radio" name="q33" value="B"> B. Human Infection Virus</label>
-<label><input type="radio" name="q33" value="C"> C. High Infection Virus</label>
-<label><input type="radio" name="q33" value="D"> D. Human Immunodeficiency Virus</label>
-</div>
-<div class="feedback" id="f33"></div>
-</div>
-
-<!-- Question 34 -->
-<div class="question">
-<p>34. It means being pregnant when a person is not ready.</p>
-<div class="answers">
-<label><input type="radio" name="q34" value="A"> A. Unwanted pregnancy</label>
-<label><input type="radio" name="q34" value="B"> B. Abandonment Pregnancy</label>
-<label><input type="radio" name="q34" value="C"> C. Abortion</label>
-<label><input type="radio" name="q34" value="D"> D. Termination of pregnancy</label>
-</div>
-<div class="feedback" id="f34"></div>
-</div>
-
-<!-- Question 35 -->
-<div class="question">
-<p>35. What does the medical term STD stand for?</p>
-<div class="answers">
-<label><input type="radio" name="q35" value="A"> A. Sexually Treated Disease</label>
-<label><input type="radio" name="q35" value="B"> B. Sexually Tackled Disease</label>
-<label><input type="radio" name="q35" value="C"> C. Sexually Transmitted Disease</label>
-<label><input type="radio" name="q35" value="D"> D. Sexually Tended Disease</label>
-</div>
-<div class="feedback" id="f35"></div>
-</div>
-
-<!-- Question 36 -->
-<div class="question">
-<p>36. Have softer skin (Sexual change: M/F)</p>
-<div class="answers">
-<label><input type="radio" name="q36" value="M"> M</label>
-<label><input type="radio" name="q36" value="F"> F</label>
-</div>
-<div class="feedback" id="f36"></div>
-</div>
-
-<!-- Question 37 -->
-<div class="question">
-<p>37. Testicles and penis become bigger (Sexual change: M/F)</p>
-<div class="answers">
-<label><input type="radio" name="q37" value="M"> M</label>
-<label><input type="radio" name="q37" value="F"> F</label>
-</div>
-<div class="feedback" id="f37"></div>
-</div>
-
-<!-- Question 38 -->
-<div class="question">
-<p>38. Have menstruation (Sexual change: M/F)</p>
-<div class="answers">
-<label><input type="radio" name="q38" value="M"> M</label>
-<label><input type="radio" name="q38" value="F"> F</label>
-</div>
-<div class="feedback" id="f38"></div>
-</div>
-
-<!-- Question 39 -->
-<div class="question">
-<p>39. There is hair on pubic, armpit, beard and legs (Sexual change: M/F)</p>
-<div class="answers">
-<label><input type="radio" name="q39" value="M"> M</label>
-<label><input type="radio" name="q39" value="F"> F</label>
-</div>
-<div class="feedback" id="f39"></div>
-</div>
-
-<!-- Question 40 -->
-<div class="question">
-<p>40. Have strong (Sexual change: M/F)</p>
-<div class="answers">
-<label><input type="radio" name="q40" value="M"> M</label>
-<label><input type="radio" name="q40" value="F"> F</label>
-</div>
-<div class="feedback" id="f40"></div>
-</div>
-
-<button onclick="checkAnswers()">ตรวจคำตอบ</button>
-<div id="result"></div>
-
-<script>
-const answerKey={
-q31:"C",q32:"A",q33:"D",q34:"A",q35:"C",
-q36:"F",q37:"M",q38:"F",q39:"M",q40:"M"
-};
-
-const explanation={
-q31:"ถูกต้อง: อายุ 16-19 คือช่วงวัยรุ่นปลาย. ผิดคิด Early/Middle. เรียน 'ระยะวัยรุ่น'.",
-q32:"ถูกต้อง: Syphilis เกิดจากแบคทีเรีย. ผิดคิด AIDS/HIV. เรียน 'โรคติดเชื้อทางเพศสัมพันธ์'.",
-q33:"ถูกต้อง: HIV = Human Immunodeficiency Virus. ผิดคิดอื่น. เรียน 'โรค HIV/AIDS'.",
-q34:"ถูกต้อง: Unwanted pregnancy = ตั้งครรภ์ไม่พร้อม. ผิดคิด Abortion. เรียน 'ตั้งครรภ์ไม่พร้อม'.",
-q35:"ถูกต้อง: STD = Sexually Transmitted Disease. ผิดคิดอื่น. เรียน 'โรคติดเชื้อทางเพศสัมพันธ์'.",
-q36:"ถูกต้อง: Soft skin เป็นสัญญาณเพศหญิง. ผิดคิด M. เรียน 'การเปลี่ยนแปลงเพศหญิง'.",
-q37:"ถูกต้อง: Testicles & penis = เพศชาย. ผิดคิด F. เรียน 'การเปลี่ยนแปลงเพศชาย'.",
-q38:"ถูกต้อง: Menstruation = เพศหญิง. ผิดคิด M. เรียน 'การเปลี่ยนแปลงเพศหญิง'.",
-q39:"ถูกต้อง: Hair growth ทุกจุด = เพศชาย. ผิดคิด F. เรียน 'การเปลี่ยนแปลงเพศชาย'.",
-q40:"ถูกต้อง: Strong muscle = เพศชาย. ผิดคิด F. เรียน 'การเปลี่ยนแปลงเพศชาย'."
-};
-
+// ====== ตรวจคำตอบ ======
 function checkAnswers(){
-let score=0;
-for(let i=31;i<=40;i++){
-let q=document.querySelector(`input[name="q${i}"]:checked`);
-let fb=document.getElementById(`f${i}`);
-if(q){
-if(q.value===answerKey[`q${i}`]){
-fb.innerHTML=`<span class="correct">ถูกต้อง!</span> <span class="explanation">${explanation[`q${i}`]}</span>`;
-score++;
-}else{
-fb.innerHTML=`<span class="wrong">ผิด!</span> <span class="explanation">${explanation[`q${i}`]}</span>`;
-}
-}else{
-fb.innerHTML=`<span class="wrong">ยังไม่ได้ตอบ!</span>`;
-}
-}
-document.getElementById("result").innerText=`คุณได้คะแนน ${score}/10`;
+    let score = 0;
+    let feedbackHtml = "";
+    questions.forEach((item,i)=>{
+        const radios = document.getElementsByName("q"+(i+1));
+        let userAns = "";
+        for(const r of radios){ if(r.checked) userAns=r.value; }
+        const fb = document.getElementById("f"+(i+1));
+        if(userAns===item.c){ score++; fb.innerHTML=`<span class="correct">ถูกต้อง</span>`; }
+        else{ fb.innerHTML=`<span class="wrong">ผิด</span> คำตอบที่ถูกต้อง: ${item.c}`; }
+    });
+    document.getElementById("result").innerHTML = `คุณได้คะแนน ${score} / ${questions.length}`;
 }
 </script>
+
 </body>
 </html>
