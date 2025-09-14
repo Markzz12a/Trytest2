@@ -1,196 +1,217 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>nongmark — Health & Technology Quiz</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg:#f7fafc;
-      --card:#ffffff;
-      --accent:#0ea5e9;
-      --muted:#6b7280;
-      --glass: rgba(255,255,255,0.6);
-    }
-    *{box-sizing:border-box}
-    body{font-family:'Poppins',system-ui,Segoe UI,Roboto,'Noto Sans',-apple-system,Arial;background:linear-gradient(180deg,var(--bg),#eef2ff);margin:0;color:#0f172a}
-    .wrap{max-width:960px;margin:28px auto;padding:18px}
-    header{display:flex;align-items:center;gap:14px;margin-bottom:18px}
-    .logo{display:flex;align-items:center;gap:12px}
-    .badge{width:58px;height:58px;border-radius:12px;background:linear-gradient(135deg,#06b6d4,#3b82f6);display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-size:20px;box-shadow:0 8px 24px rgba(3,105,161,0.12)}
-    h1{font-size:20px;margin:0}
-    p.lead{margin:2px 0 0;color:var(--muted);font-size:13px}
-
-    .card{background:var(--card);border-radius:14px;padding:22px;box-shadow:0 12px 40px rgba(2,6,23,0.06)}
-    .center{display:flex;align-items:center;justify-content:center}
-
-    /* start screen */
-    #startScreen{display:block;text-align:center;padding:36px}
-    #startScreen .desc{color:var(--muted);margin-top:8px}
-    .btn{padding:12px 18px;border-radius:10px;border:none;background:var(--accent);color:white;font-weight:600;cursor:pointer}
-    .btn.ghost{background:transparent;color:var(--accent);border:1px solid rgba(14,165,233,0.12)}
-    .small{font-size:13px;color:var(--muted)}
-
-    /* quiz */
-    .question-wrap{display:none;flex-direction:column;gap:14px}
-    .meta{display:flex;justify-content:space-between;align-items:center}
-    .progress{height:10px;background:#eef2ff;border-radius:999px;overflow:hidden;flex:1;margin-left:12px}
-    .progress > i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),#06b6d4);width:0%}
-
-    .qtitle{font-size:18px;font-weight:600}
-    .opts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:10px}
-    .opt{border:1px solid #e6eef8;padding:12px;border-radius:10px;cursor:pointer;display:flex;align-items:center;gap:12px}
-    .opt input{appearance:none;width:22px;height:22px;border-radius:6px;border:2px solid #c7d2fe;display:inline-block}
-    .opt:hover{border-color:var(--accent);box-shadow:0 6px 18px rgba(99,102,241,0.06)}
-    .opt.selected{border-color:var(--accent);background:linear-gradient(90deg,#f5f3ff,#eef2ff)}
-
-    .controls{display:flex;justify-content:space-between;gap:12px;margin-top:18px}
-    .btn.secondary{background:#64748b}
-
-    /* result */
-    .result{display:none;gap:12px;align-items:center}
-    .score{font-size:42px;font-weight:700;color:var(--accent)}
-    .summary{margin-top:12px}
-
-    @media (max-width:700px){
-      .opts{grid-template-columns:1fr}
-      .badge{width:48px;height:48px}
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>nongmark — Health & Technology Quiz</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f7fafc;--card:#fff;--accent:#0ea5e9;--muted:#6b7280}
+*{box-sizing:border-box}
+body{font-family:'Poppins',sans-serif;margin:0;background:linear-gradient(180deg,var(--bg),#eef2ff);color:#0f172a}
+.wrap{max-width:960px;margin:28px auto;padding:18px}
+header{display:flex;align-items:center;gap:14px;margin-bottom:18px}
+.logo{display:flex;align-items:center;gap:12px}
+.badge{width:58px;height:58px;border-radius:12px;background:linear-gradient(135deg,#06b6d4,#3b82f6);display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-size:20px;box-shadow:0 8px 24px rgba(3,105,161,0.12)}
+h1{font-size:20px;margin:0}
+p.lead{margin:2px 0 0;color:var(--muted);font-size:13px}
+.card{background:var(--card);border-radius:14px;padding:22px;box-shadow:0 12px 40px rgba(2,6,23,0.06)}
+.center{display:flex;align-items:center;justify-content:center}
+#startScreen{display:block;text-align:center;padding:36px}
+#startScreen .desc{color:var(--muted);margin-top:8px}
+.btn{padding:12px 18px;border-radius:10px;border:none;background:var(--accent);color:white;font-weight:600;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--accent);border:1px solid rgba(14,165,233,0.12)}
+.small{font-size:13px;color:var(--muted)}
+.question-wrap{display:none;flex-direction:column;gap:14px}
+.meta{display:flex;justify-content:space-between;align-items:center}
+.progress{height:10px;background:#eef2ff;border-radius:999px;overflow:hidden;flex:1;margin-left:12px}
+.progress>i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),#06b6d4);width:0%}
+.qtitle{font-size:18px;font-weight:600}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:10px}
+.opt{border:1px solid #e6eef8;padding:12px;border-radius:10px;cursor:pointer;display:flex;align-items:center;gap:12px}
+.opt:hover{border-color:var(--accent);box-shadow:0 6px 18px rgba(99,102,241,0.06)}
+.opt.selected{border-color:var(--accent);background:linear-gradient(90deg,#f5f3ff,#eef2ff)}
+.controls{display:flex;justify-content:space-between;gap:12px;margin-top:18px}
+.btn.secondary{background:#64748b}
+.result{display:none;gap:12px;align-items:center}
+.score{font-size:42px;font-weight:700;color:var(--accent)}
+.summary{margin-top:12px}
+@media (max-width:700px){
+  .opts{grid-template-columns:1fr}
+  .badge{width:48px;height:48px}
+}
+</style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <div class="logo">
-        <div class="badge">NM</div>
-        <div>
-          <h1>nongmark</h1>
-          <p class="lead">Health & Technology Quiz — One question per page</p>
-        </div>
-      </div>
-    </header>
+<div class="wrap">
+<header>
+<div class="logo">
+<div class="badge">NM</div>
+<div>
+<h1>nongmark</h1>
+<p class="lead">Health & Technology Quiz — One question per page</p>
+</div>
+</div>
+</header>
 
-    <div class="card">
-      <!-- Start Screen -->
-      <div id="startScreen">
-        <h2 style="margin:0 0 8px">Welcome to the Quiz</h2>
-        <div class="desc small">40 questions — answer one question per page. Click Start when you're ready.</div>
-        <div style="margin-top:18px" class="center">
-          <button id="startBtn" class="btn">Start Quiz</button>
-        </div>
-        <div style="margin-top:12px" class="small">You can navigate with Next / Back. Final page has Submit.</div>
-      </div>
+<div class="card">
+<div id="startScreen">
+<h2 style="margin:0 0 8px">Welcome to the Quiz</h2>
+<div class="desc small">40 questions — answer one question per page. Click Start when ready.</div>
+<div style="margin-top:18px" class="center">
+<button id="startBtn" class="btn">Start Quiz</button>
+</div>
+<div style="margin-top:12px" class="small">You can navigate with Next / Back. Final page has Submit.</div>
+</div>
 
-      <!-- Quiz Area -->
-      <div class="question-wrap" id="quizArea">
-        <div class="meta">
-          <div>
-            <div class="small">Question <span id="qIndex">1</span> / <span id="qTotal">40</span></div>
-            <div class="qtitle" id="qText">Loading...</div>
-          </div>
-          <div style="display:flex;align-items:center;gap:12px">
-            <div class="small">Progress</div>
-            <div class="progress" aria-hidden><i id="progressBar"></i></div>
-          </div>
-        </div>
+<div class="question-wrap" id="quizArea">
+<div class="meta">
+<div>
+<div class="small">Question <span id="qIndex">1</span> / <span id="qTotal">40</span></div>
+<div class="qtitle" id="qText">Loading...</div>
+</div>
+<div style="display:flex;align-items:center;gap:12px">
+<div class="small">Progress</div>
+<div class="progress" aria-hidden><i id="progressBar"></i></div>
+</div>
+</div>
+<div class="opts" id="options"></div>
+<div class="controls">
+<div>
+<button id="backBtn" class="btn ghost">Back</button>
+<button id="nextBtn" class="btn ghost">Next</button>
+</div>
+<div>
+<button id="restartBtn" class="btn secondary">Restart</button>
+<button id="submitBtn" class="btn">Submit</button>
+</div>
+</div>
+</div>
 
-        <div class="opts" id="options">
-          <!-- options here -->
-        </div>
-
-        <div class="controls">
-          <div>
-            <button id="backBtn" class="btn ghost">Back</button>
-            <button id="nextBtn" class="btn ghost">Next</button>
-          </div>
-          <div>
-            <button id="restartBtn" class="btn secondary">Restart</button>
-            <button id="submitBtn" class="btn">Submit</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Result -->
-      <div class="result" id="resultArea" style="margin-top:18px">
-        <div>
-          <div class="small">Your result</div>
-          <div class="score" id="scoreNum">0 / 40</div>
-          <div class="summary" id="summaryText"></div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="result" id="resultArea" style="margin-top:18px">
+<div>
+<div class="small">Your result</div>
+<div class="score" id="scoreNum">0 / 40</div>
+<div class="summary" id="summaryText"></div>
+</div>
+</div>
+</div>
+</div>
 
 <script>
-const questions = [
-  { q: "1. It is applying the scientific knowledge and methods to develop new tools to help society.", opts: ["a. food", "b. technology", "c. business", "d. ?"], a: "b" },
-  { q: "2. Which has not a technology?", opts: ["a. Using human force to harvest rice", "b. Using robots to do the operation", "c. Sending messages through mobile phones", "d. Using cleaning machines to clean the house"], a: "a" },
-  { q: "3. What is the usefulness of medical technology?", opts: ["a. Promote the energy conservation", "b. Reduce the death rate of population", "c. Industrial business expands.", "d. Crime decreases"], a: "b" },
-  { q: "4. What should we consider when buying health products?", opts: ["a. Necessary", "b. Free product", "c. Popularity", "d. Advertisement from favorite stars"], a: "a" },
-  { q: "5. Which health product should you purchase?", opts: ["a. Drinking water", "b. Cosmetics", "c. Popular snack", "d. Dish cleaner"], a: "a" },
-  { q: "6. It affects the decision to purchase products and health services.", opts: ["a. Advertisement", "b. Culture", "c. Friend", "d. Politicians"], a: "a" },
-  { q: "7. The service of the government that provides health services to the people.", opts: ["a. Food services", "b. Health Insurance", "c. Health Services", "d. Health Products"], a: "c" },
-  { q: "8. Which is the characteristic of public health service?", opts: ["a. People can access easily and the service is standardized.", "b. The service is only for few people.", "c. People do not pay for treatment.", "d. Nervous hospital"], a: "a" },
-  { q: "9. Which is not a label of a health product?", opts: ["a. Warning", "b. Net weight", "c. Name of the owner", "d. Procedure"], a: "c" },
-  { q: "10. What is the purpose of the health insurance project?", opts: ["a. Improve ability of doctors", "b. Allow people to have standardized and equal health.", "c. the poor and disordered.", "d. Dish cleaner that is sold in the community"], a: "b" },
-  { q: "11. How does using computers for a long time affect health?", opts: ["a. Causing pimples on the face", "b. Causing overweight", "c. Causing brain damage", "d. Causing headache and vomiting"], a: "d" },
-  { q: "12. Which medical advancement affects teenager's health the most?", opts: ["a. Wearing contact lens.", "b. Having plastic surgery", "c. Transferring organs", "d. Orthodontics"], a: "d" },
-  { q: "13. Which medical advancement is very dangerous?", opts: ["a. Wearing contact lens to solve eye problems", "b. Orthodontics", "c. Having nose surgery after the accident", "d. Having an abortion"], a: "d" },
-  { q: "14. It is a popular medical advancement that strengthen and align the teeth.", opts: ["a. Orthodontics", "b. Contact lens", "c. Plastic surgery", "d. Hair culture"], a: "a" },
-  { q: "15. What is public health technology?", opts: ["a. The scientific knowledge to explore the outer space", "b. The method to increase farm products", "c. It is the scientific knowledge of treating disease.", "d. It is use in travelling conveniently."], a: "c" },
-  { q: "16. Which of the following is a disadvantage of orthodontics?", opts: ["a. It prevents gum disease.", "b. Helps speaking clearly.", "c. Gives confidence in oneself.", "d. Feel pain from the changing position of teeth."], a: "d" },
-  { q: "17. Which is not a kind of health services?", opts: ["a. Specific health service", "b. Transferring patients comfortably and fast.", "c. Loans", "d. Health Insurance"], a: "c" },
-  { q: "18. Which is not a health product?", opts: ["a. a newspaper", "b. toothpaste", "c. measuring pressure device", "d. cough medicine"], a: "a" },
-  { q: "19. The change that shows the growth and development of a teenager's height and weight.", opts: ["a. Physical", "b. Mental", "c. Social", "d. Emotional"], a: "a" },
-  { q: "20. Which technology positively affects health?", opts: ["a. Using a mobile phone in high frequency areas", "b. Arranging a trip to outer space", "c. Manufacturing a car that uses water instead of oil", "d. Creating 3D movies"], a: "c" },
-  { q: "21. If you do not receive fair service in purchasing health products, who should you call for?", opts: ["a. Ministry of Interior", "b. Police station", "c. Office of the consumer board", "d. The King"], a: "c" },
-  { q: "22. Which health services is a specific health service?", opts: ["a. Priest hospital", "b. Bangkok Hospital", "c. Nervous hospital", "d. Siriraj hospital"], a: "c" },
-  { q: "23. Which one is not a public health service?", opts: ["a. Thai massage", "b. Public health station", "c. Drugstore", "d. District hospital"], a: "a" },
-  { q: "24. The products that consumers use in order to live healthy.", opts: ["a. Socialization", "b. Intellectual technology", "c. Health product", "d. Physical fitness"], a: "c" },
-  { q: "25. What is the positive effect of medical advancement towards the world population?", opts: ["a. Population has better education", "b. Preventing the spread of severe diseases", "c. Having natural resources to use for a long time", "d. Making everyone beautiful"], a: "b" },
-  { q: "26. What is the effect of plastic surgery?", opts: ["a. Losing personality and confidence", "b. Being careful in doing activities", "c. Immune system deficiency", "d. Aging"], a: "d" },
-  { q: "27. Which of the following is a health product?", opts: ["a. Exercise", "b. Food", "c. Musical instrument", "d. Body odor"], a: "b" },
-  { q: "28. Which is not a concept in buying health products?", opts: ["a. Choose products that are necessary.", "b. Choose products that provide all the details", "c. Choose products that are in clean containers", "d. Choose products that are expensive and fashionable"], a: "d" },
-  { q: "29. It can access the teenagers quickly because of technology", opts: ["a. Culture", "b. Friends", "c. Media", "d. Money"], a: "c" },
-  { q: "30. It gives enough nutrients for the rapid change of the teenager's body.", opts: ["a. Food", "b. Exercising", "c. Sickness", "d. Technology"], a: "a" },
-  // 31-40 (example)
-  { q: "31. Which is important to prevent diseases?", opts: ["a. Hygiene", "b. Laziness", "c. Watching TV", "d. Pollution"], a: "a" },
-  { q: "32. Which is considered a medical technology?", opts: ["a. Stethoscope", "b. Pencil", "c. Bicycle", "d. Book"], a: "a" },
-  { q: "33. What should you do before taking medicine?", opts: ["a. Read instruction", "b. Ignore it", "c. Mix with alcohol", "d. Skip meals"], a: "a" },
-  { q: "34. Which exercise helps health?", opts: ["a. Running", "b. Sleeping", "c. Watching TV", "d. Sitting"], a: "a" },
-  { q: "35. Which food is healthiest?", opts: ["a. Vegetables", "b. Candy", "c. Soda", "d. Chips"], a: "a" },
-  { q: "36. Which habit prevents diseases?", opts: ["a. Hand washing", "b. Smoking", "c. Eating junk food", "d. Skipping meals"], a: "a" },
-  { q: "37. What is a technology for communication?", opts: ["a. Mobile phone", "b. Stone", "c. Bicycle", "d. Pencil"], a: "a" },
-  { q: "38. Which service helps sick people?", opts: ["a. Hospital", "b. Cinema", "c. Restaurant", "d. School"], a: "a" },
-  { q: "39. Which activity improves mental health?", opts: ["a. Meditation", "b. Watching TV", "c. Sleeping all day", "d. Eating junk food"], a: "a" },
-  { q: "40. What is the main goal of public health?", opts: ["a. Keep people healthy", "b. Make profits", "c. Build factories", "d. Travel"], a: "a" }
+// Quiz data — 40 ข้อครบ
+const questions=[
+{q:"1. It is applying the scientific knowledge and methods to develop new tools to help society.",opts:["a. Food","b. Technology","c. Business","d. Unknown"],a:"b"},
+{q:"2. Which has not a technology?",opts:["a. Using human force to harvest rice","b. Using robots to do the operation","c. Sending messages through mobile phones","d. Using cleaning machines to clean the house"],a:"a"},
+{q:"3. What is the usefulness of medical technology?",opts:["a. Promote energy conservation","b. Reduce the death rate of population","c. Industrial business expands","d. Crime decreases"],a:"b"},
+{q:"4. What should we consider when buying health products?",opts:["a. Necessary","b. Free product","c. Popularity","d. Advertisement from favorite stars"],a:"a"},
+{q:"5. Which health product should you purchase?",opts:["a. Drinking water","b. Cosmetics","c. Popular snack","d. Dish cleaner"],a:"a"},
+{q:"6. It affects the decision to purchase products and health services.",opts:["a. Advertisement","b. Culture","c. Friend","d. Politicians"],a:"a"},
+{q:"7. The service of the government that provides health services to the people.",opts:["a. Food services","b. Health Insurance","c. Health Services","d. Health Products"],a:"c"},
+{q:"8. Which is the characteristic of public health service?",opts:["a. People can access easily and service is standardized","b. Service only for few people","c. People do not pay for treatment","d. Nervous hospital"],a:"a"},
+{q:"9. Which is not a label of a health product?",opts:["a. Warning","b. Net weight","c. Name of owner","d. Procedure"],a:"c"},
+{q:"10. What is the purpose of health insurance project?",opts:["a. Improve doctor ability","b. Allow people to have standardized health","c. Poor and disordered","d. Dish cleaner sold in community"],a:"b"},
+{q:"11. Which nutrient is most important for growth?",opts:["a. Carbohydrate","b. Protein","c. Fat","d. Fiber"],a:"b"},
+{q:"12. What is the main cause of diabetes?",opts:["a. Lack of exercise","b. Eating sugar excessively","c. Genetic only","d. Infection"],a:"b"},
+{q:"13. What is considered a healthy habit?",opts:["a. Smoking","b. Drinking alcohol","c. Regular exercise","d. Skipping breakfast"],a:"c"},
+{q:"14. Which vitamin is good for eyesight?",opts:["a. Vitamin A","b. Vitamin B","c. Vitamin C","d. Vitamin D"],a:"a"},
+{q:"15. How often should adults exercise?",opts:["a. 1 time/week","b. 3-5 times/week","c. Daily","d. Rarely"],a:"b"},
+{q:"16. What is BMI used for?",opts:["a. Measuring height","b. Weight management","c. Body mass index","d. Counting calories"],a:"c"},
+{q:"17. Which is not a symptom of dehydration?",opts:["a. Thirst","b. Dry mouth","c. Frequent urination","d. Dizziness"],a:"c"},
+{q:"18. How to prevent influenza?",opts:["a. Vaccination","b. Avoid handwashing","c. Sharing utensils","d. Smoking"],a:"a"},
+{q:"19. What is a balanced diet?",opts:["a. Eat only meat","b. Eat vegetables only","c. Include all food groups","d. Skip meals"],a:"c"},
+{q:"20. What is an infectious disease?",opts:["a. Disease caused by bacteria/virus","b. Disease caused by injury","c. Mental disorder","d. Allergy"],a:"a"},
+{q:"21. Which device helps people hear?",opts:["a. Glasses","b. Hearing aid","c. Pacemaker","d. Thermometer"],a:"b"},
+{q:"22. What does a thermometer measure?",opts:["a. Temperature","b. Pressure","c. Weight","d. Speed"],a:"a"},
+{q:"23. Which habit spreads germs?",opts:["a. Washing hands","b. Covering mouth","c. Sneezing openly","d. Using sanitizer"],a:"c"},
+{q:"24. What is the main source of energy?",opts:["a. Protein","b. Fat","c. Carbohydrate","d. Vitamin"],a:"c"},
+{q:"25. How to maintain mental health?",opts:["a. Stress management","b. Overworking","c. Isolation","d. Ignoring feelings"],a:"a"},
+{q:"26. Which is part of technology?",opts:["a. Stone tool","b. Mobile app","c. Traditional dance","d. Storytelling"],a:"b"},
+{q:"27. What is the main purpose of technology in medicine?",opts:["a. Make people sick","b. Cure diseases","c. Only research","d. Advertisement"],a:"b"},
+{q:"28. What is e-health?",opts:["a. Electronic health services","b. Traditional herbs","c. Hospital food","d. Exercise"],a:"a"},
+{q:"29. How to prevent obesity?",opts:["a. Eat fast food frequently","b. Exercise regularly","c. Skip meals","d. Sleep less"],a:"b"},
+{q:"30. Which is a digital device?",opts:["a. Laptop","b. Book","c. Pen","d. Paper"],a:"a"},
+{q:"31. What is telemedicine?",opts:["a. Seeing doctor remotely","b. Self-medication","c. Only hospital visit","d. Gym activity"],a:"a"},
+{q:"32. Which is not a healthy drink?",opts:["a. Water","b. Soft drinks","c. Milk","d. Fresh juice"],a:"b"},
+{q:"33. How to reduce stress?",opts:["a. Meditation","b. Smoking","c. Drinking alcohol","d. Overwork"],a:"a"},
+{q:"34. Which is a symptom of illness?",opts:["a. Fever","b. Happiness","c. Exercise","d. Sleep"],a:"a"},
+{q:"35. Which is the main goal of nutrition?",opts:["a. Healthy growth","b. Making money","c. Building houses","d. Traveling"],a:"a"},
+{q:"36. Which habit prevents disease?",opts:["a. Wash hands","b. Share utensils","c. Avoid exercise","d. Smoke"],a:"a"},
+{q:"37. What is health technology used for?",opts:["a. Cure disease","b. Create waste","c. Make noise","d. Only business"],a:"a"},
+{q:"38. Which is a public health measure?",opts:["a. Vaccination","b. Gambling","c. Driving fast","d. Smoking"],a:"a"},
+{q:"39. How to maintain hygiene?",opts:["a. Wash hands","b. Littering","c. Avoid bathing","d. Spit"],a:"a"},
+{q:"40. What is the main goal of public health?",opts:["a. Keep people healthy","b. Make profits","c. Build factories","d. Travel"],a:"a"}
 ];
 
-const total = questions.length;
-let idx = 0;
-const answers = Array(total).fill(null);
+let idx=0;
+const total=questions.length;
+const answers=Array(total).fill(null);
 
-const startScreen = document.getElementById('startScreen');
-const startBtn = document.getElementById('startBtn');
-const quizArea = document.getElementById('quizArea');
-const qIndexEl = document.getElementById('qIndex');
-const qTotalEl = document.getElementById('qTotal');
-const qTextEl = document.getElementById('qText');
-const optionsEl = document.getElementById('options');
-const backBtn = document.getElementById('backBtn');
-const nextBtn = document.getElementById('nextBtn');
-const submitBtn = document.getElementById('submitBtn');
-const restartBtn = document.getElementById('restartBtn');
-const progressBar = document.getElementById('progressBar');
-const resultArea = document.getElementById('resultArea');
-const scoreNum = document.getElementById('scoreNum');
-const summaryText = document.getElementById('summaryText');
+const startScreen=document.getElementById('startScreen');
+const startBtn=document.getElementById('startBtn');
+const quizArea=document.getElementById('quizArea');
+const qIndexEl=document.getElementById('qIndex');
+const qTotalEl=document.getElementById('qTotal');
+const qTextEl=document.getElementById('qText');
+const optionsEl=document.getElementById('options');
+const backBtn=document.getElementById('backBtn');
+const nextBtn=document.getElementById('nextBtn');
+const submitBtn=document.getElementById('submitBtn');
+const restartBtn=document.getElementById('restartBtn');
+const progressBar=document.getElementById('progressBar');
+const resultArea=document.getElementById('resultArea');
+const scoreNum=document.getElementById('scoreNum');
+const summaryText=document.getElementById('summaryText');
 
-qTotalEl.textContent = total;
+qTotalEl.textContent=total;
 
-startBtn.addEventListener('click', ()=>{
-  startScreen.style.display = 'none';
-  quizArea.style
+startBtn.onclick=function(){
+  startScreen.style.display='none';
+  quizArea.style.display='flex';
+  renderQuestion();
+  updateControls();
+};
+
+function renderQuestion(){
+  const q=questions[idx];
+  qIndexEl.textContent=idx+1;
+  qTextEl.textContent=q.q;
+  optionsEl.innerHTML='';
+  q.opts.forEach((opt)=>{
+    const div=document.createElement('div');
+    div.className='opt';
+    div.dataset.value=opt[0].toLowerCase();
+    div.textContent=opt;
+    if(answers[idx]===div.dataset.value) div.classList.add('selected');
+    div.onclick=()=>{
+      answers[idx]=div.dataset.value;
+      Array.from(optionsEl.children).forEach(el=>el.classList.remove('selected'));
+      div.classList.add('selected');
+    };
+    optionsEl.appendChild(div);
+  });
+  progressBar.style.width=((idx+1)/total*100)+'%';
+}
+
+function updateControls(){
+  backBtn.style.display=idx>0?'inline-block':'none';
+  nextBtn.style.display=idx<total-1?'inline-block':'none';
+  submitBtn.style.display=idx===total-1?'inline-block':'none';
+}
+
+backBtn.onclick=function(){if(idx>0) idx--; renderQuestion(); updateControls();}
+nextBtn.onclick=function(){if(idx<total-1) idx++; renderQuestion(); updateControls();}
+submitBtn.onclick=function(){showResult();}
+restartBtn.onclick=function(){idx=0;answers.fill(null);resultArea.style.display='none';quizArea.style.display='flex';renderQuestion();updateControls();};
+
+function showResult(){
+  quizArea.style.display='none';
+  resultArea.style.display='flex';
+  let score=0;
+  answers.forEach((ans,i)=>{if(ans===questions[i].a)score++;});
+  scoreNum.textContent=score+' / '+total;
+  summaryText.textContent='You answered '+score+' questions correctly.';
+}
+</script>
+</body>
+</html>
