@@ -3,141 +3,92 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Health Teen Quiz 1–40</title>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<title>Teen Health Quiz 1–40</title>
 <style>
-body { font-family: 'Roboto', sans-serif; background: linear-gradient(to right, #f0f8ff, #e6f2ff); padding: 20px; }
-h1 { text-align: center; color: #2c3e50; margin-bottom: 20px; }
-.question { background: #ffffffcc; padding: 15px; margin: 15px 0; border-radius: 12px; box-shadow: 0px 4px 6px rgba(0,0,0,0.1);}
-.answers label { display: block; margin: 8px 0; cursor: pointer; padding: 6px; border-radius: 6px; transition: 0.3s;}
-.answers input[type="radio"] { margin-right: 10px; }
+body { font-family: Arial, sans-serif; background: #f0f8ff; padding: 20px; }
+h1 { text-align: center; color: #2c3e50; }
+.question { background: #fff; padding: 15px; margin: 15px 0; border-radius: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+.answers label { display: block; margin: 6px 0; cursor: pointer; padding: 6px; border-radius: 6px; transition: 0.3s; }
+.answers input { margin-right: 10px; }
 .answers label:hover { background-color: #d6f0ff; }
-button { background-color: #3498db; color: white; padding: 12px 25px; border: none; border-radius: 8px; font-size: 16px; cursor: pointer; margin-top: 10px; }
-button:hover { background-color: #1d6fa5; }
-#result { margin-top: 20px; padding: 15px; background: #f8f8f8; border-radius: 12px; }
+button { background: #3498db; color: white; border: none; padding: 10px 20px; border-radius: 6px; font-size: 16px; cursor: pointer; }
+button:hover { background: #1d6fa5; }
+.feedback { margin-top: 5px; }
 .correct { color: green; font-weight: bold; }
 .wrong { color: red; font-weight: bold; }
-.explanation { font-style: italic; color: #555; margin-left: 10px; }
+#result { margin-top: 20px; font-size: 18px; font-weight: bold; }
 </style>
 </head>
 <body>
 
-<h1>Health Teen Quiz 1–40</h1>
-
+<h1>Teen Health Quiz 1–40</h1>
 <div id="quiz"></div>
-
 <button onclick="checkAnswers()">ตรวจคำตอบ</button>
 <div id="result"></div>
 
 <script>
-// ====== ข้อมูลข้อสอบ ======
+// ข้อสอบและเฉลย
 const questions = [
-{q:"1. A teenager's change which results in the development of the brain and genetics",
- a:["Social Change","Physical Change","Emotional Change","Intellectual Change"], c:"D"},
-{q:"2. Which of the following is the effect of emotional changes in teenagers?",
- a:["Fighting with students","Getting lower grades in Math","Overweight","Being with friends with the same interest"], c:"B"},
-{q:"3. How do appropriate teenager's growth and development affect society?",
- a:["The number of populations decreases","There are efficient and qualified people to improve the country","The quality of the educational system is better","The crime increases"], c:"B"},
-{q:"4. Which change among teenagers shows readiness for reproduction?",
- a:["Having pubic hair","Strong muscles","Having menstruation","Bigger breasts"], c:"C"},
-{q:"5. The physical changes of teenagers that are obvious",
- a:["Bone and teeth","Height and weight","Body odor","Reproductive system"], c:"B"},
-{q:"6. How does being pregnant at school age affect the family?",
- a:["Increasing family's expenses","Receiving more family members","Needing to move away and live somewhere else","Decreasing income of the family"], c:"A"},
-{q:"7. What does AIDS stand for?",
- a:["Acquired Intelligence Doing Something","An Individual Dating Someone","Agreement Immunity Dating Someone","Acquired Immune Deficiency Syndrome"], c:"D"},
-{q:"8. What hormone develops the growth of muscle and bone of a teenager?",
- a:["Estrogen","Androgen","Sebaceous fats","Cortisone"], c:"B"},
-{q:"9. What is the benefit of having a good behavior?",
- a:["Having a lot of friends in the opposite sex","Preventing sexual problems","Building fame to family","Receiving a prize as a model student"], c:"B"},
-{q:"10. A factor that influences teenagers' attitude such as comics, novels with sexual pictures/stories, pornographic videos and computer games.",
- a:["Culture","Media","Family","Friend"], c:"B"},
-
-// ===== 11-20 =====
-{q:"11. Which of the following is NOT a healthy habit?",
- a:["Exercising daily","Eating junk food","Drinking enough water","Sleeping well"], c:"B"},
-{q:"12. Which nutrient is essential for strong bones?",
- a:["Vitamin C","Calcium","Vitamin B12","Iron"], c:"B"},
-{q:"13. What is the recommended amount of daily sleep for teenagers?",
- a:["5–6 hours","6–7 hours","7–8 hours","8–10 hours"], c:"D"},
-{q:"14. Which activity helps improve mental health?",
- a:["Watching TV all day","Exercising","Skipping meals","Playing video games excessively"], c:"B"},
-{q:"15. Which of the following prevents tooth decay?",
- a:["Brushing teeth twice a day","Eating candy","Drinking soda","Not flossing"], c:"A"},
-{q:"16. Which factor contributes to obesity?",
- a:["Regular exercise","Eating vegetables","High sugar intake","Sleeping enough"], c:"C"},
-{q:"17. What is an effect of smoking on teenagers?",
- a:["Improved lung function","Reduced stamina","Better skin","Increased energy"], c:"B"},
-{q:"18. Which is a symptom of depression?",
- a:["Persistent sadness","Happy mood all day","Excess energy","No change in appetite"], c:"A"},
-{q:"19. How can teenagers prevent diseases?",
- a:["Ignoring symptoms","Regular exercise and healthy diet","Skipping vaccines","Eating fast food daily"], c:"B"},
-{q:"20. What is a sign of good physical fitness?",
- a:["High stamina","Poor posture","Excessive weight gain","Lethargy"], c:"A"},
-
-// ===== 21-30 =====
-{q:"21. What is the main function of the heart?",
- a:["Digest food","Pump blood","Store nutrients","Filter air"], c:"B"},
-{q:"22. Which organ filters waste from blood?",
- a:["Heart","Kidneys","Liver","Lungs"], c:"B"},
-{q:"23. Which vitamin helps in blood clotting?",
- a:["Vitamin K","Vitamin D","Vitamin A","Vitamin C"], c:"A"},
-{q:"24. What is a symptom of dehydration?",
- a:["Headache","Clear urine","Increased appetite","Excessive sleep"], c:"A"},
-{q:"25. What should teenagers do to prevent skin problems?",
- a:["Avoid sun exposure","Eat more sugar","Use proper skincare","Sleep less"], c:"C"},
-{q:"26. What is the effect of regular exercise?",
- a:["Weak muscles","Improved stamina","Weight gain only","Sleep deprivation"], c:"B"},
-{q:"27. Which food is high in protein?",
- a:["Rice","Chicken","Candy","Soft drink"], c:"B"},
-{q:"28. Which of the following helps improve concentration?",
- a:["Multitasking","Studying in a quiet place","Using phone constantly","Skipping meals"], c:"B"},
-{q:"29. What is a sign of proper nutrition?",
- a:["Healthy hair and skin","Frequent fatigue","Weak immunity","Poor growth"], c:"A"},
-{q:"30. Which habit reduces the risk of infection?",
- a:["Not washing hands","Regular hand washing","Sharing utensils","Ignoring hygiene"], c:"B"},
-
-// ===== 31-40 =====
-{q:"31. Which exercise strengthens leg muscles?",
- a:["Push-ups","Running","Pull-ups","Sit-ups"], c:"B"},
-{q:"32. Which food contains fiber?",
- a:["Vegetables","Meat","Candy","Cheese"], c:"A"},
-{q:"33. Which nutrient is important for eyesight?",
- a:["Protein","Calcium","Vitamin A","Fat"], c:"C"},
-{q:"34. What helps to improve mental focus?",
- a:["Sleeping well","Eating junk food","Watching TV","Skipping meals"], c:"A"},
-{q:"35. Which of the following can lead to obesity?",
- a:["Skipping meals","Regular exercise","Overeating","Sleeping enough"], c:"C"},
-{q:"36. Which is a healthy beverage?",
- a:["Soda","Juice with sugar","Water","Energy drink"], c:"C"},
-{q:"37. Which habit improves heart health?",
- a:["Smoking","Regular exercise","Eating fast food","Staying inactive"], c:"B"},
-{q:"38. Which food should be limited for healthy diet?",
- a:["Vegetables","Fruits","Candy","Lean meat"], c:"C"},
-{q:"39. Which is important for strong bones?",
- a:["Vitamin D","Sugar","Salt","Fat"], c:"A"},
-{q:"40. Which activity reduces stress?",
- a:["Meditation","Overworking","Smoking","Watching horror movies"], c:"A"}
+{q:"1. A teenager's change which results in the development of the brain and genetics", a:["Social Change","Physical Change","Emotional Change","Intellectual Change"], c:"D"},
+{q:"2. Which of the following is the effect of emotional changes in teenagers?", a:["Fighting with students","Getting lower grades in Math","Overweight","Being with friends with the same interest"], c:"B"},
+{q:"3. How do appropriate teenager's growth and development affect society?", a:["The number of populations decreases","There are efficient and qualified people to improve the country","The quality of the educational system is better","The crime increases"], c:"B"},
+{q:"4. Which change among teenagers shows the readiness in reproduction?", a:["Having pubic hair","Strong muscles","Having menstruation","Bigger breasts"], c:"C"},
+{q:"5. The physical changes of teenagers that are obvious", a:["Bone and teeth","Height and weight","Body odor","Reproductive system"], c:"B"},
+{q:"6. How does being pregnant at school age affect the family?", a:["Increasing family's expenses","Receiving more family members","Needing to move away and live somewhere else","Decreasing income of the family"], c:"A"},
+{q:"7. What does AIDS stand for?", a:["Acquired Intelligence Doing Something","An Individual Dating Someone","Agreement Immunity Dating Someone","Acquired Immune Deficiency Syndrome"], c:"D"},
+{q:"8. What hormone develops the growth of muscle and bone of a teenager?", a:["Estrogen","Androgen","Sebaceous fats","Cortisone"], c:"B"},
+{q:"9. What is the benefit of having a good behavior?", a:["Having a lot of friends in the opposite sex","Preventing sexual problems","Building fame to family","Receiving a prize as a model student"], c:"B"},
+{q:"10. A factor that influences teenagers' attitude such as comics, novels with sexual pictures/stories, pornographic videos and computer games.", a:["Culture","Media","Family","Friend"], c:"B"},
+{q:"11. A disease caused by HIV where the immune system becomes weak", a:["STD","Gonorrhea","Syphilis","AIDS"], c:"D"},
+{q:"12. Which effect regarding sexual intercourse at school age is the worst?", a:["Having HIV","Marriage","Syphilis","Pregnancy"], c:"A"},
+{q:"13. How do appropriate teenager's growth and development affect society?", a:["The number of populations decreases","There are efficient and qualified people to improve the country","The quality of the educational system is better","The crime increases"], c:"B"},
+{q:"14. Which change among teenagers shows readiness in reproduction?", a:["Having pubic hair","Strong muscles","Having menstruation","Bigger breasts"], c:"C"},
+{q:"15. How does eating the five food groups affect teenagers?", a:["Standard weight","Stable emotions","Having high intellect","Adapting to others easily"], c:"A"},
+{q:"16. How does not having sleep affect a teenager's development?", a:["Overweight","Able to control emotions","Have good intellectual development","Hormones grow unusually with a small body"], c:"A"},
+{q:"17. Which food group should be eaten as little as possible?", a:["Carbohydrate","Oil, sugar and salt","Meat, milk and beans","Vegetables"], c:"B"},
+{q:"18. An external factor that helps the body to rest from many activities", a:["Relaxation","Exercise","Sickness or injury","Food"], c:"A"},
+{q:"19. What hormone develops the growth of muscle and bone of a teenager?", a:["Estrogen","Androgen","Sebaceous fats","Cortisone"], c:"B"},
+{q:"20. Which of the following shows sexual change among female?", a:["Have strong muscle","Have menstruation","Can produce sperm","Larynx enlarges"], c:"B"},
+{q:"21. Which of the following shows sexual change among male?", a:["Have soft skin","Beasts become bigger","Have menstruation","Larynx enlarges"], c:"D"},
+{q:"22. Which of the following is from genetic inheritance?", a:["Lack of confidence","Addiction to drugs","Loves gambling","Having Thalassemia"], c:"D"},
+{q:"23. How does eating the five food groups affect teenagers?", a:["Standard weight","Stable emotions","Having high intellect","Adapting to others easily"], c:"A"},
+{q:"24. If you want to improve your social development, what should you do?", a:["Looking for knowledge that is interesting","Surfing the internet","Exercising in free time","Accepting other's opinions"], c:"D"},
+{q:"25. Which of the following is a risk for sexual intercourse at school age?", a:["Eating lunch together","Doing homework together","Lying together on the bed","Walking home together"], c:"C"},
+{q:"26. Which saying helps prevent STD?", a:["Lady's man","Respecting oneself","Quick-tempered","Flirting with others"], c:"B"},
+{q:"27. If your friend wants you to watch pornographic movies, what would you say?", a:["What is the name of the movie?","Not too long because I need to go home early","I don't want to watch now","I will not watch because it is not appropriate for our age"], c:"D"},
+{q:"28. Which of the following helps prevent unwanted pregnancy problems?", a:["Avoiding hanging out with friends at night","Taking birth control pill","Keeping the body clean","Not having opposite sex friends"], c:"B"},
+{q:"29. The inheritance from parents that will be set by DNA and genes", a:["Genetics","Food","Human Structure","Social"], c:"A"},
+{q:"30. A hormone in male that causes sexual feeling", a:["Testosterone","Collagen","Estrogen","Thalassemia"], c:"A"},
+{q:"31. Adolescence period during 16-19 year", a:["Early","Middle","Late","Toddler"], c:"C"},
+{q:"32. It is caused by bacteria infecting through sex or touching clothes of patients", a:["Syphilis","AIDS","Gonorrhea","HIV"], c:"C"},
+{q:"33. What does HIV stand for?", a:["High Immunity Virus","Human Infection Virus","High Infection Virus","Human Immunodeficiency Virus"], c:"D"},
+{q:"34. It means being pregnant when not ready", a:["Unwanted pregnancy","Abandonment Pregnancy","Abortion","Termination of pregnancy"], c:"A"},
+{q:"35. What does STD stand for?", a:["Sexually Treated Disease","Sexually Tackled Disease","Sexually Transmitted Disease","Sexually Tended Disease"], c:"C"},
+{q:"36. Sexual change for male/female: Have softer skin", a:["M","F"], c:"F"},
+{q:"37. Sexual change for male/female: Testicles and penis become bigger", a:["M","F"], c:"M"},
+{q:"38. Sexual change for male/female: Have menstruation", a:["M","F"], c:"F"},
+{q:"39. Sexual change for male/female: Hair on pubic, armpit, beard and legs", a:["M","F"], c:"M"},
+{q:"40. Sexual change for male/female: Have strong muscles", a:["M","F"], c:"M"},
 ];
 
-// ====== สร้างข้อสอบในหน้า ======
+// สร้างข้อสอบ
 const quizDiv = document.getElementById('quiz');
 questions.forEach((item,i)=>{
-    let html = `<div class="question">
-        <p>${item.q}</p>
-        <div class="answers">`;
+    let html = `<div class="question"><p>${i+1}. ${item.q}</p><div class="answers">`;
     const letters = ["A","B","C","D"];
-    item.a.forEach((ans,j)=>{
-        html += `<label><input type="radio" name="q${i+1}" value="${letters[j]}"> ${ans}</label>`;
-    });
+    if(item.a.length===2){ // M/F
+        html += `<label><input type="radio" name="q${i+1}" value="M"> M</label>`;
+        html += `<label><input type="radio" name="q${i+1}" value="F"> F</label>`;
+    } else {
+        item.a.forEach((ans,j)=>{ html += `<label><input type="radio" name="q${i+1}" value="${letters[j]}"> ${ans}</label>`; });
+    }
     html += `</div><div class="feedback" id="f${i+1}"></div></div>`;
     quizDiv.innerHTML += html;
 });
 
-// ====== ตรวจคำตอบ ======
+// ตรวจคำตอบ
 function checkAnswers(){
     let score = 0;
-    let feedbackHtml = "";
     questions.forEach((item,i)=>{
         const radios = document.getElementsByName("q"+(i+1));
         let userAns = "";
@@ -149,6 +100,5 @@ function checkAnswers(){
     document.getElementById("result").innerHTML = `คุณได้คะแนน ${score} / ${questions.length}`;
 }
 </script>
-
 </body>
 </html>
